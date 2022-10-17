@@ -137,6 +137,7 @@ class CreatorParamsManager(ParamsManager):
             cmd: str = genCmd_singlerun(
                 output=root_dir + "/",
                 params=root_dir + "/" + PARAMS_FILE_NAME,
+                # hard coded path
                 coll='/Users/haoyudu/Documents/GitHub/celegans-locomotion-zihan/software/input/coll_objs.tsv',
             )
             print(cmd)
