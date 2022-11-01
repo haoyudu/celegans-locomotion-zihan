@@ -370,10 +370,11 @@ def _command_assembler(**kwargs) -> str:
 				output.append('--'+key)
 				output.append(val)
 
+	# debug point: checking what the output args are
 	print("-------------------")
 	print(output)
 
-	str_output : str = " ".join(output)
+	str_output : str = ' '.join(str(x) for x in output)
 	
 	for d in COMMAND_DANGERS:
 		if d in str_output:
@@ -382,7 +383,7 @@ def _command_assembler(**kwargs) -> str:
 			if bln_cont != 'y':
 				exit(0)
 
-	return output
+	return str_output
 
 
 def genCmd_singlerun(
