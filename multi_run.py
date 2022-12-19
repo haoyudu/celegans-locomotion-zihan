@@ -31,7 +31,7 @@ class Launchers(object):
     def food_circle_run(
             rootdir: Path = 'data/run/',
             step: int=8,
-            food_radius: float=0.003,
+            food_radius: float=0.0042426,
             params: Path = 'input/params.json',
             **kwargs,
     ):
@@ -66,7 +66,7 @@ class Launchers(object):
         food_x = food_radius * np.cos(angle)
         food_y = food_radius * np.sin(angle)
 
-        for i in range(step):
+        for i in range(step-1):
             # current_angle = str(angle[i])
             print(step)
 
@@ -82,6 +82,7 @@ class Launchers(object):
 
             # set up the different runs
             dct_runs: List[str, str] = [f'{-food_x[i]:0.5f},{food_y[i]:0.5f}', f'{food_x[i]:0.5f},{food_y[i]:0.5f}']
+            # dct_runs: List[str, str] = [f'{-food_x[i]:f},{food_y[i]:f}', f'{food_x[i]:f},{food_y[i]:f}']
 
             # dictionary of running processes
             dct_procs: dict = dict()
@@ -98,6 +99,7 @@ class Launchers(object):
                     output=out_path,
                     params=params,
                     foodPos=foodPos,
+                    # angle=2.874,
                     duration=100.0,
                     **kwargs,
                 ).split(' ')
@@ -209,6 +211,7 @@ class Launchers(object):
                 output=out_path,
                 foodPos=foodPos,
                 angle=angle,
+                duration=300,
                 **kwargs,
             ).split(' ')
 
